@@ -79,7 +79,7 @@ public class OrderService {
     private OrderPlacedEvent getEvent(String orderNumber) {
         return OrderPlacedEvent.builder()
                 .orderNumber(orderNumber)
-                .to("sultanovrahman01@gmail.com")
+                .to("userMail")
                 .subject("Order")
                 .text("Your order has been successfully received: ")
                 .build();

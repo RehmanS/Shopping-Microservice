@@ -16,7 +16,6 @@ public class NotificationPartitioner implements Partitioner {
 
         int chosenPartition = Math.abs(orderNumber.hashCode()) % 2;
         int numPartitions = cluster.partitionCountForTopic("NOTIFICATION_TOPIC");
-        log.info("Secilen Partition:  "+ chosenPartition);
         return chosenPartition;
     }
 
