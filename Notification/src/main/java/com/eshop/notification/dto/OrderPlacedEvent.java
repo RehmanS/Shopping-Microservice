@@ -1,4 +1,4 @@
-package com.eshop.notification.email;
+package com.eshop.notification.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

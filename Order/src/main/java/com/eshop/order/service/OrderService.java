@@ -60,7 +60,7 @@ public class OrderService {
         // save to database if all items are in stock
         if (allProductIsInStock) {
             orderRepository.save(order);
-            kafkaTemplate.send("notificationTopic", getEvent(order.getOrderNumber()));
+            kafkaTemplate.send("NOTIFICATION_TOPIC", getEvent(order.getOrderNumber()));
         } else {
             throw new IllegalArgumentException("Product is not in stock, please try again later");
         }
@@ -79,7 +79,7 @@ public class OrderService {
     private OrderPlacedEvent getEvent(String orderNumber) {
         return OrderPlacedEvent.builder()
                 .orderNumber(orderNumber)
-                .to("yourgmail")
+                .to("sultanovrahman01@gmail.com")
                 .subject("Order")
                 .text("Your order has been successfully received: ")
                 .build();

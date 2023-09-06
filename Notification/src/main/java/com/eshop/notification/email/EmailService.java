@@ -1,5 +1,6 @@
 package com.eshop.notification.email;
 
+import com.eshop.notification.dto.OrderPlacedEvent;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.kafka.annotation.KafkaListener;
@@ -13,7 +14,7 @@ public class EmailService {
     @Autowired
     private JavaMailSender javaMailSender;
 
-    @KafkaListener(topics = "notificationTopic")
+    @KafkaListener(topics = "NOTIFICATION_TOPIC")
     public void handleNotification(OrderPlacedEvent orderPlacedEvent) {
         // log.info("Received Notification for Order - {}",orderPlacedEvent.getOrderNumber());
         sendEmail(orderPlacedEvent.getTo(), orderPlacedEvent.getSubject(),
